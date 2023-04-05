@@ -15,7 +15,7 @@ class RecipeBottomNavigationBar extends HookConsumerWidget {
   const RecipeBottomNavigationBar({super.key, required this.tabsRouter});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bottomBarIcons = [IconType.home, IconType.user];
+    final bottomBarIcons = [IconType.home, IconType.favourites];
     return ClipRRect(
       borderRadius: const BorderRadius.only(
         topRight: Radius.circular(16),
@@ -68,13 +68,7 @@ class RecipeBottomNavigationBar extends HookConsumerWidget {
         );
       case 1:
         return Text(
-          'SEARCH',
-          style: AppTextStyles.body7.copyWith(
-              color: isSelectedItem ? AppColors.primary : AppColors.iconGrayed),
-        );
-      case 2:
-        return Text(
-          'PROFILE',
+          'Favourites',
           style: AppTextStyles.body7.copyWith(
               color: isSelectedItem ? AppColors.primary : AppColors.iconGrayed),
         );

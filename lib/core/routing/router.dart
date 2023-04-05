@@ -3,7 +3,7 @@ import 'package:auto_route/empty_router_widgets.dart';
 
 import '../../view/pages/main_page/home_page/home_page.dart';
 import '../../view/pages/main_page/main_page.dart';
-import '../../view/pages/main_page/my_profile_page/my_profile_page.dart';
+import '../../view/pages/main_page/favourites_page/favourites_page.dart';
 import '../../view/pages/splash_page/splash_page.dart';
 
 @AdaptiveAutoRouter(
@@ -20,11 +20,11 @@ import '../../view/pages/splash_page/splash_page.dart';
         ],
       ),
       AutoRoute(
-        path: "my-profile-tab",
-        name: "MyProfileTabRouter",
+        path: "favourites-tab",
+        name: "FavouritesTabRouter",
         page: EmptyRouterPage,
         children: [
-          AutoRoute(path: "", page: MyProfilePage),
+          AutoRoute(path: "", page: FavouritesPage),
         ],
       )
     ]),

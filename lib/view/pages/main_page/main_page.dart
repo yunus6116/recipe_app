@@ -19,6 +19,6 @@ class MainPage extends HookWidget {
         bottomNavigationBuilder: (_, tabsRouter) => RecipeBottomNavigationBar(
               tabsRouter: tabsRouter,
             ),
-        routes: const [HomeTabRouter(), MyProfileTabRouter()]);
+        routes: const [HomeTabRouter(), FavouritesTabRouter()]);
   }
 }

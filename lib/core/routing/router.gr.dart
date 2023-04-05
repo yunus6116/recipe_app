@@ -14,11 +14,11 @@
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:auto_route/empty_router_widgets.dart' as _i3;
 import 'package:flutter/material.dart' as _i7;
+import 'package:recipe_app/view/pages/main_page/favourites_page/favourites_page.dart'
+    as _i5;
 import 'package:recipe_app/view/pages/main_page/home_page/home_page.dart'
     as _i4;
 import 'package:recipe_app/view/pages/main_page/main_page.dart' as _i2;
-import 'package:recipe_app/view/pages/main_page/my_profile_page/my_profile_page.dart'
-    as _i5;
 import 'package:recipe_app/view/pages/splash_page/splash_page.dart' as _i1;
 
 class AppRouter extends _i6.RootStackRouter {
@@ -45,7 +45,7 @@ class AppRouter extends _i6.RootStackRouter {
         child: const _i3.EmptyRouterPage(),
       );
     },
-    MyProfileTabRouter.name: (routeData) {
+    FavouritesTabRouter.name: (routeData) {
       return _i6.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i3.EmptyRouterPage(),
@@ -57,10 +57,10 @@ class AppRouter extends _i6.RootStackRouter {
         child: const _i4.HomePage(),
       );
     },
-    MyProfileRoute.name: (routeData) {
+    FavouritesRoute.name: (routeData) {
       return _i6.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i5.MyProfilePage(),
+        child: const _i5.FavouritesPage(),
       );
     },
   };
@@ -88,14 +88,14 @@ class AppRouter extends _i6.RootStackRouter {
               ],
             ),
             _i6.RouteConfig(
-              MyProfileTabRouter.name,
-              path: 'my-profile-tab',
+              FavouritesTabRouter.name,
+              path: 'favourites-tab',
               parent: MainRoute.name,
               children: [
                 _i6.RouteConfig(
-                  MyProfileRoute.name,
+                  FavouritesRoute.name,
                   path: '',
-                  parent: MyProfileTabRouter.name,
+                  parent: FavouritesTabRouter.name,
                 )
               ],
             ),
@@ -144,15 +144,15 @@ class HomeTabRouter extends _i6.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.EmptyRouterPage]
-class MyProfileTabRouter extends _i6.PageRouteInfo<void> {
-  const MyProfileTabRouter({List<_i6.PageRouteInfo>? children})
+class FavouritesTabRouter extends _i6.PageRouteInfo<void> {
+  const FavouritesTabRouter({List<_i6.PageRouteInfo>? children})
       : super(
-          MyProfileTabRouter.name,
-          path: 'my-profile-tab',
+          FavouritesTabRouter.name,
+          path: 'favourites-tab',
           initialChildren: children,
         );
 
-  static const String name = 'MyProfileTabRouter';
+  static const String name = 'FavouritesTabRouter';
 }
 
 /// generated route for
@@ -168,13 +168,13 @@ class HomeRoute extends _i6.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.MyProfilePage]
-class MyProfileRoute extends _i6.PageRouteInfo<void> {
-  const MyProfileRoute()
+/// [_i5.FavouritesPage]
+class FavouritesRoute extends _i6.PageRouteInfo<void> {
+  const FavouritesRoute()
       : super(
-          MyProfileRoute.name,
+          FavouritesRoute.name,
           path: '',
         );
 
-  static const String name = 'MyProfileRoute';
+  static const String name = 'FavouritesRoute';
 }

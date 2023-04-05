@@ -4,22 +4,22 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../shared/styles/text_styles.dart';
 import '../../../shared/widgets/custom_appbar.dart';
 
-class MyProfilePage extends HookConsumerWidget {
-  const MyProfilePage({super.key});
+class FavouritesPage extends HookConsumerWidget {
+  const FavouritesPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: _buildAppbar(),
       body: const SafeArea(
-        child: Center(child: Text('Profile')),
+        child: Center(child: Text('Favourites')),
       ),
     );
   }
 
   CustomAppBar _buildAppbar() {
     return CustomAppBar(
-      title: 'Profile',
+      title: 'My Favourites',
       titleStyle: AppTextStyles.heading7,
     );
   }

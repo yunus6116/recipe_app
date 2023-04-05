@@ -89,7 +89,6 @@ class AppTextStyles {
   static TextStyle _getTextStyle(double fontSize, FontWeight fontWeight,
           {double? height, Color color = AppColors.dustyGray800}) =>
       TextStyle(
-          fontFamily: 'HKGrotesk',
           fontSize: fontSize,
           fontWeight: fontWeight,
           height: height ?? 1.2,

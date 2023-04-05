@@ -3,8 +3,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:recipe_app/bootstrap.dart';
 import 'package:recipe_app/env.dart';
 import 'package:recipe_app/view/shared/widgets/focus_escape.dart';
-import 'package:recipe_app/view/shared/widgets/main_build.dart';
-
 import 'core/global_constants/global_constants.dart';
 import 'core/routing/router_provider.dart';
 
@@ -25,7 +23,6 @@ class MyApp extends HookConsumerWidget {
         routerDelegate: ref.read(routerProvider).delegate(),
         debugShowCheckedModeBanner: false,
         title: Environment.appTitle,
-        builder: MainBuild.build,
       ),
     );
   }
