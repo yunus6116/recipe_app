@@ -21,10 +21,12 @@ class FavouritesVM extends ChangeNotifier {
             .read(cacheManagerProvider(BoxType.generalBox))
             .readFromBox<List<dynamic>?>(BoxKey.favourites) ??
         [];
+    favoritesList = favoritesList.reversed.toList();
   }
 
   void setFavouriteList(newList) {
     favoritesList = newList;
+    favoritesList = favoritesList.reversed.toList();
     notifyListeners();
   }
 }

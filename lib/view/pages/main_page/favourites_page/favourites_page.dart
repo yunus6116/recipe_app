@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:recipe_app/core/routing/router.gr.dart';
 import 'package:recipe_app/view/pages/main_page/favourites_page/viewmodel/favourites_page_viewmodel.dart';
+import 'package:recipe_app/view/pages/main_page/favourites_page/widgets/favourite_recipe_widget.dart';
 
 import '../../../shared/styles/colors.dart';
 import '../../../shared/styles/text_styles.dart';
 import '../../../shared/widgets/custom_appbar.dart';
-import '../../../shared/widgets/recipe_widget.dart';
 
 class FavouritesPage extends StatefulHookConsumerWidget {
   const FavouritesPage({super.key});
@@ -33,18 +33,11 @@ class _FavouritesPageState extends ConsumerState<FavouritesPage> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: favouriteRecipes.isNotEmpty
-              ? GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 12,
-                    childAspectRatio: 1.2,
-                  ),
+              ? ListView.builder(
                   itemCount: favouriteRecipes.length,
                   itemBuilder: (context, index) {
-                    return RecipeWidget(
+                    return FavouriteRecipeWidget(
                       recipeModel: favouriteRecipes[index],
-                      fromFavouritePage: true,
                     );
                   },
                 )
