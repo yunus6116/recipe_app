@@ -46,7 +46,8 @@ class HomePageVM extends ChangeNotifier {
     return false;
   }
 
-  void clickFavouriteButton(bool isFavourite, RecipeModel recipeModel) {
+  void clickFavouriteButton(bool isFavourite, RecipeModel recipeModel,
+      {bool fromDetailPage = false, bool fromFavouritePage = false}) {
     final favouriteRecipes = ref
             .read(cacheManagerProvider(BoxType.generalBox))
             .readFromBox<List<dynamic>?>(BoxKey.favourites) ??
@@ -71,13 +72,16 @@ class HomePageVM extends ChangeNotifier {
           BoxKey.favourites,
           favouriteRecipes,
         );
+    if (fromDetailPage || fromFavouritePage) {
+      ref.refresh(getRecipesFutureP(searchKey));
+    }
   }
 }
 
 final homePageVMProvider =
     ChangeNotifierProvider.autoDispose((ref) => HomePageVM(ref));
 
-final getAllCatsFutureP = FutureProvider.autoDispose
+final getRecipesFutureP = FutureProvider.autoDispose
     .family<List<RecipeModel>, String?>((ref, searchKey) async {
   return await ref
       .read(recipeServicesProvider)

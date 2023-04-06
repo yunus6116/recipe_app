@@ -120,7 +120,10 @@ class _RecipeDetailPageState extends ConsumerState<RecipeDetailPage> {
                   IconButton(
                     onPressed: () {
                       ref.read(homePageVMProvider).clickFavouriteButton(
-                          isFavourite, widget.recipeModel);
+                            isFavourite,
+                            widget.recipeModel,
+                            fromDetailPage: true,
+                          );
                       setState(() {});
                     },
                     icon: Icon(

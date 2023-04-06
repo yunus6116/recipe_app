@@ -25,7 +25,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         ref.watch(homePageVMProvider.select((value) => value.searchKey));
     final searchController =
         ref.watch(homePageVMProvider.select((value) => value.searchController));
-    final getRecipesFuture = ref.watch(getAllCatsFutureP(searchKey));
+    final getRecipesFuture = ref.watch(getRecipesFutureP(searchKey));
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Recipely App',

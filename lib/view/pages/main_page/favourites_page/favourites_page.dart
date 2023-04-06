@@ -42,7 +42,10 @@ class _FavouritesPageState extends ConsumerState<FavouritesPage> {
                   ),
                   itemCount: favouriteRecipes.length,
                   itemBuilder: (context, index) {
-                    return RecipeWidget(recipeModel: favouriteRecipes[index]);
+                    return RecipeWidget(
+                      recipeModel: favouriteRecipes[index],
+                      fromFavouritePage: true,
+                    );
                   },
                 )
               : Column(

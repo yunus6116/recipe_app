@@ -14,8 +14,10 @@ class RecipeWidget extends StatefulHookConsumerWidget {
   const RecipeWidget({
     super.key,
     required this.recipeModel,
+    this.fromFavouritePage = false,
   });
   final RecipeModel recipeModel;
+  final bool fromFavouritePage;
 
   @override
   ConsumerState<RecipeWidget> createState() => _RecipeWidgetState();
@@ -97,9 +99,11 @@ class _RecipeWidgetState extends ConsumerState<RecipeWidget> {
               top: 5,
               child: InkWell(
                   onTap: () {
-                    ref
-                        .read(homePageVMProvider)
-                        .clickFavouriteButton(isFavourite, widget.recipeModel);
+                    ref.read(homePageVMProvider).clickFavouriteButton(
+                          isFavourite,
+                          widget.recipeModel,
+                          fromDetailPage: widget.fromFavouritePage,
+                        );
                     setState(() {});
                   },
                   child: Icon(
