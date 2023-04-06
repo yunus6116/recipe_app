@@ -30,7 +30,7 @@ class _RecipeWidgetState extends ConsumerState<RecipeWidget> {
         ref.read(homePageVMProvider).checkIfFavourite(widget.recipeModel);
     return InkWell(
       onTap: () async {
-        // Navigate to Detail
+        // Navigate to Recipe Detail
         await context
             .navigateTo(RecipeDetailRoute(recipeModel: widget.recipeModel));
       },

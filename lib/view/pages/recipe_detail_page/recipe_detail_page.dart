@@ -44,6 +44,7 @@ class _RecipeDetailPageState extends ConsumerState<RecipeDetailPage> {
     bool isFavourite =
         ref.read(homePageVMProvider).checkIfFavourite(widget.recipeModel);
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: NestedScrollView(
           controller: _scrollController,
@@ -52,10 +53,12 @@ class _RecipeDetailPageState extends ConsumerState<RecipeDetailPage> {
               SliverAppBar(
                 floating: false,
                 pinned: true,
+                backgroundColor: Colors.white,
+                elevation: 0,
                 expandedHeight: MediaQuery.of(context).size.height * .2,
                 flexibleSpace: FlexibleSpaceBar(
                   centerTitle: true,
-                  collapseMode: CollapseMode.pin,
+                  collapseMode: CollapseMode.parallax,
                   titlePadding: EdgeInsets.zero,
                   title: Container(
                     width: double.infinity,
@@ -69,37 +72,22 @@ class _RecipeDetailPageState extends ConsumerState<RecipeDetailPage> {
                     alignment: _isAppBarExpanded
                         ? Alignment.center
                         : Alignment.bottomCenter,
-                    child: Column(
-                      mainAxisAlignment: _isAppBarExpanded
-                          ? MainAxisAlignment.center
-                          : MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          widget.recipeModel.label != null
-                              ? widget.recipeModel.label!.length > 35
-                                  ? '${widget.recipeModel.label!.substring(0, 33)}..'
-                                  : widget.recipeModel.label!
-                              : 'Food',
-                          style: AppTextStyles.heading6.copyWith(
-                            color:
-                                _isAppBarExpanded ? Colors.black : Colors.white,
-                          ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        widget.recipeModel.label != null
+                            ? !_isAppBarExpanded
+                                ? widget.recipeModel.label!
+                                : widget.recipeModel.label!.length > 35
+                                    ? '${widget.recipeModel.label!.substring(0, 33)}..'
+                                    : widget.recipeModel.label!
+                            : 'Food',
+                        style: AppTextStyles.heading6.copyWith(
+                          color:
+                              _isAppBarExpanded ? Colors.black : Colors.white,
                         ),
-                        !_isAppBarExpanded
-                            ? Text(
-                                widget.recipeModel.label != null
-                                    ? widget.recipeModel.label!.length > 35
-                                        ? '${widget.recipeModel.label!.substring(0, 33)}..'
-                                        : widget.recipeModel.label!
-                                    : 'Food',
-                                style: AppTextStyles.body9.copyWith(
-                                  color: _isAppBarExpanded
-                                      ? Colors.black
-                                      : Colors.white,
-                                ),
-                              )
-                            : const SizedBox.shrink(),
-                      ],
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                   background: CachedNetworkImage(
@@ -142,9 +130,66 @@ class _RecipeDetailPageState extends ConsumerState<RecipeDetailPage> {
             ];
           },
           body: SingleChildScrollView(
-            child: Center(
-              child: Text(widget.recipeModel.label ?? ''),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 12,
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    'Ingredients',
+                    style: AppTextStyles.heading1,
+                  ),
+                  const SizedBox(height: 8),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: widget.recipeModel.ingredients != null
+                        ? widget.recipeModel.ingredients!.length
+                        : 0,
+                    itemBuilder: (ctx, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                        child: Text(
+                          '- ${widget.recipeModel.ingredients?[index].food ?? ''}',
+                          style: AppTextStyles.body1.copyWith(
+                            color: AppColors.primary,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    'Instructions',
+                    style: AppTextStyles.heading1,
+                  ),
+                  const SizedBox(height: 8),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: widget.recipeModel.ingredientLines != null
+                        ? widget.recipeModel.ingredientLines!.length
+                        : 0,
+                    itemBuilder: (ctx, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                        child: Text(
+                          '- ${widget.recipeModel.ingredientLines?[index] ?? ''}',
+                          style: AppTextStyles.body1.copyWith(
+                            color: AppColors.primary,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
+            // child: ListVi(
+            //   child: Center(
+            //     child: Text(widget.recipeModel.ingredientLines?[0] ?? ''),
+            //   ),
+            // ),
           ),
         ),
       ),

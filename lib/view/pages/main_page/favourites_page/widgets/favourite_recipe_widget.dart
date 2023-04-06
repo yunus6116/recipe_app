@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../../core/global_models/recipe_model.dart';
+import '../../../../../core/routing/router.gr.dart';
 import '../../../../shared/shimmer/shimmer_effect.dart';
 import '../../../../shared/styles/colors.dart';
 import '../../../../shared/styles/text_styles.dart';
@@ -38,6 +40,10 @@ class FavouriteRecipeWidget extends HookConsumerWidget {
           ),
         ),
         child: ListTile(
+          onTap: () async {
+            await context
+                .navigateTo(RecipeDetailRoute(recipeModel: recipeModel));
+          },
           leading: SizedBox(
             width: 100,
             child: CachedNetworkImage(
