@@ -5,12 +5,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 enum BoxType { generalBox }
 
 ///All the keys we have in  the app to store in cache
-enum BoxKey { seenOnboardingPages }
+enum BoxKey { favourites }
 
 class _CacheManager {
+  String boxName;
   late Box box;
 
-  _CacheManager() {
+  _CacheManager(this.boxName) {
     box = Hive.box(BoxType.generalBox.name);
   }
 
@@ -31,4 +32,5 @@ class _CacheManager {
   }
 }
 
-final cacheManagerProvider = Provider((_) => _CacheManager());
+final cacheManagerProvider =
+    Provider.family((ref, BoxType boxType) => _CacheManager(boxType.name));

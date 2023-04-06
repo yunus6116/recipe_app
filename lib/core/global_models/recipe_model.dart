@@ -1,25 +1,51 @@
-class RecipeModel {
+import 'package:hive/hive.dart';
+part 'recipe_model.g.dart';
+
+@HiveType(typeId: 1)
+class RecipeModel extends HiveObject {
+  @HiveField(0)
   String? uri;
+  @HiveField(1)
   String? label;
+  @HiveField(2)
   String? image;
+  @HiveField(3)
   Images? images;
+  @HiveField(4)
   String? source;
+  @HiveField(5)
   String? url;
+  @HiveField(6)
   String? shareAs;
+  @HiveField(7)
   double? yield;
+  @HiveField(8)
   List<String>? dietLabels;
+  @HiveField(9)
   List<String>? healthLabels;
+  @HiveField(10)
   List<String>? cautions;
+  @HiveField(11)
   List<String>? ingredientLines;
+  @HiveField(12)
   List<Ingredients>? ingredients;
+  @HiveField(13)
   double? calories;
+  @HiveField(14)
   double? totalWeight;
+  @HiveField(15)
   double? totalTime;
+  @HiveField(16)
   List<String>? cuisineType;
+  @HiveField(17)
   List<String>? mealType;
+  @HiveField(18)
   List<String>? dishType;
+  @HiveField(19)
   TotalNutrients? totalNutrients;
+  @HiveField(20)
   TotalDaily? totalDaily;
+  @HiveField(21)
   List<Digest>? digest;
 
   RecipeModel(
@@ -50,8 +76,7 @@ class RecipeModel {
     uri = json['uri'];
     label = json['label'];
     image = json['image'];
-    images =
-        json['images'] != null ? Images.fromJson(json['images']) : null;
+    images = json['images'] != null ? Images.fromJson(json['images']) : null;
     source = json['source'];
     url = json['url'];
     shareAs = json['shareAs'];
@@ -124,10 +149,15 @@ class RecipeModel {
   }
 }
 
-class Images {
+@HiveType(typeId: 2)
+class Images extends HiveObject {
+  @HiveField(0)
   THUMBNAIL? tHUMBNAIL;
+  @HiveField(1)
   THUMBNAIL? sMALL;
+  @HiveField(2)
   THUMBNAIL? rEGULAR;
+  @HiveField(3)
   THUMBNAIL? lARGE;
 
   Images({this.tHUMBNAIL, this.sMALL, this.rEGULAR, this.lARGE});
@@ -136,13 +166,10 @@ class Images {
     tHUMBNAIL = json['THUMBNAIL'] != null
         ? THUMBNAIL.fromJson(json['THUMBNAIL'])
         : null;
-    sMALL =
-        json['SMALL'] != null ? THUMBNAIL.fromJson(json['SMALL']) : null;
-    rEGULAR = json['REGULAR'] != null
-        ? THUMBNAIL.fromJson(json['REGULAR'])
-        : null;
-    lARGE =
-        json['LARGE'] != null ? THUMBNAIL.fromJson(json['LARGE']) : null;
+    sMALL = json['SMALL'] != null ? THUMBNAIL.fromJson(json['SMALL']) : null;
+    rEGULAR =
+        json['REGULAR'] != null ? THUMBNAIL.fromJson(json['REGULAR']) : null;
+    lARGE = json['LARGE'] != null ? THUMBNAIL.fromJson(json['LARGE']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -163,9 +190,13 @@ class Images {
   }
 }
 
-class THUMBNAIL {
+@HiveType(typeId: 3)
+class THUMBNAIL extends HiveObject {
+  @HiveField(0)
   String? url;
+  @HiveField(1)
   int? width;
+  @HiveField(2)
   int? height;
 
   THUMBNAIL({this.url, this.width, this.height});
@@ -185,14 +216,23 @@ class THUMBNAIL {
   }
 }
 
-class Ingredients {
+@HiveType(typeId: 4)
+class Ingredients extends HiveObject {
+  @HiveField(0)
   String? text;
+  @HiveField(1)
   double? quantity;
+  @HiveField(2)
   String? measure;
+  @HiveField(3)
   String? food;
+  @HiveField(4)
   double? weight;
+  @HiveField(5)
   String? foodCategory;
+  @HiveField(6)
   String? foodId;
+  @HiveField(7)
   String? image;
 
   Ingredients(
@@ -230,41 +270,77 @@ class Ingredients {
   }
 }
 
-class TotalNutrients {
+@HiveType(typeId: 5)
+class TotalNutrients extends HiveObject {
+  @HiveField(0)
   ENERCKCAL? eNERCKCAL;
+  @HiveField(1)
   ENERCKCAL? fAT;
+  @HiveField(2)
   ENERCKCAL? fASAT;
+  @HiveField(3)
   ENERCKCAL? fATRN;
+  @HiveField(4)
   ENERCKCAL? fAMS;
+  @HiveField(5)
   ENERCKCAL? fAPU;
+  @HiveField(6)
   ENERCKCAL? cHOCDF;
+  @HiveField(7)
   ENERCKCAL? cHOCDFNet;
+  @HiveField(8)
   ENERCKCAL? fIBTG;
+  @HiveField(9)
   ENERCKCAL? sUGAR;
+  @HiveField(10)
   SUGARAdded? sUGARAdded;
+  @HiveField(11)
   ENERCKCAL? pROCNT;
+  @HiveField(12)
   ENERCKCAL? cHOLE;
+  @HiveField(13)
   ENERCKCAL? nA;
+  @HiveField(14)
   ENERCKCAL? cA;
+  @HiveField(15)
   ENERCKCAL? mG;
+  @HiveField(16)
   ENERCKCAL? k;
+  @HiveField(17)
   ENERCKCAL? fE;
+  @HiveField(18)
   ENERCKCAL? zN;
+  @HiveField(19)
   ENERCKCAL? p;
+  @HiveField(20)
   ENERCKCAL? vITARAE;
+  @HiveField(21)
   ENERCKCAL? vITC;
+  @HiveField(22)
   ENERCKCAL? tHIA;
+  @HiveField(23)
   ENERCKCAL? rIBF;
+  @HiveField(24)
   ENERCKCAL? nIA;
+  @HiveField(25)
   ENERCKCAL? vITB6A;
+  @HiveField(26)
   ENERCKCAL? fOLDFE;
+  @HiveField(27)
   ENERCKCAL? fOLFD;
+  @HiveField(28)
   SUGARAdded? fOLAC;
+  @HiveField(29)
   ENERCKCAL? vITB12;
+  @HiveField(30)
   ENERCKCAL? vITD;
+  @HiveField(31)
   ENERCKCAL? tOCPHA;
+  @HiveField(32)
   ENERCKCAL? vITK1;
+  @HiveField(33)
   SUGARAdded? sugarAlcohol;
+  @HiveField(34)
   ENERCKCAL? wATER;
 
   TotalNutrients(
@@ -309,28 +385,21 @@ class TotalNutrients {
         ? ENERCKCAL.fromJson(json['ENERC_KCAL'])
         : null;
     fAT = json['FAT'] != null ? ENERCKCAL.fromJson(json['FAT']) : null;
-    fASAT =
-        json['FASAT'] != null ? ENERCKCAL.fromJson(json['FASAT']) : null;
-    fATRN =
-        json['FATRN'] != null ? ENERCKCAL.fromJson(json['FATRN']) : null;
+    fASAT = json['FASAT'] != null ? ENERCKCAL.fromJson(json['FASAT']) : null;
+    fATRN = json['FATRN'] != null ? ENERCKCAL.fromJson(json['FATRN']) : null;
     fAMS = json['FAMS'] != null ? ENERCKCAL.fromJson(json['FAMS']) : null;
     fAPU = json['FAPU'] != null ? ENERCKCAL.fromJson(json['FAPU']) : null;
-    cHOCDF =
-        json['CHOCDF'] != null ? ENERCKCAL.fromJson(json['CHOCDF']) : null;
+    cHOCDF = json['CHOCDF'] != null ? ENERCKCAL.fromJson(json['CHOCDF']) : null;
     cHOCDFNet = json['CHOCDF.net'] != null
         ? ENERCKCAL.fromJson(json['CHOCDF.net'])
         : null;
-    fIBTG =
-        json['FIBTG'] != null ? ENERCKCAL.fromJson(json['FIBTG']) : null;
-    sUGAR =
-        json['SUGAR'] != null ? ENERCKCAL.fromJson(json['SUGAR']) : null;
+    fIBTG = json['FIBTG'] != null ? ENERCKCAL.fromJson(json['FIBTG']) : null;
+    sUGAR = json['SUGAR'] != null ? ENERCKCAL.fromJson(json['SUGAR']) : null;
     sUGARAdded = json['SUGAR.added'] != null
         ? SUGARAdded.fromJson(json['SUGAR.added'])
         : null;
-    pROCNT =
-        json['PROCNT'] != null ? ENERCKCAL.fromJson(json['PROCNT']) : null;
-    cHOLE =
-        json['CHOLE'] != null ? ENERCKCAL.fromJson(json['CHOLE']) : null;
+    pROCNT = json['PROCNT'] != null ? ENERCKCAL.fromJson(json['PROCNT']) : null;
+    cHOLE = json['CHOLE'] != null ? ENERCKCAL.fromJson(json['CHOLE']) : null;
     nA = json['NA'] != null ? ENERCKCAL.fromJson(json['NA']) : null;
     cA = json['CA'] != null ? ENERCKCAL.fromJson(json['CA']) : null;
     mG = json['MG'] != null ? ENERCKCAL.fromJson(json['MG']) : null;
@@ -338,33 +407,24 @@ class TotalNutrients {
     fE = json['FE'] != null ? ENERCKCAL.fromJson(json['FE']) : null;
     zN = json['ZN'] != null ? ENERCKCAL.fromJson(json['ZN']) : null;
     p = json['P'] != null ? ENERCKCAL.fromJson(json['P']) : null;
-    vITARAE = json['VITA_RAE'] != null
-        ? ENERCKCAL.fromJson(json['VITA_RAE'])
-        : null;
+    vITARAE =
+        json['VITA_RAE'] != null ? ENERCKCAL.fromJson(json['VITA_RAE']) : null;
     vITC = json['VITC'] != null ? ENERCKCAL.fromJson(json['VITC']) : null;
     tHIA = json['THIA'] != null ? ENERCKCAL.fromJson(json['THIA']) : null;
     rIBF = json['RIBF'] != null ? ENERCKCAL.fromJson(json['RIBF']) : null;
     nIA = json['NIA'] != null ? ENERCKCAL.fromJson(json['NIA']) : null;
-    vITB6A =
-        json['VITB6A'] != null ? ENERCKCAL.fromJson(json['VITB6A']) : null;
-    fOLDFE =
-        json['FOLDFE'] != null ? ENERCKCAL.fromJson(json['FOLDFE']) : null;
-    fOLFD =
-        json['FOLFD'] != null ? ENERCKCAL.fromJson(json['FOLFD']) : null;
-    fOLAC =
-        json['FOLAC'] != null ? SUGARAdded.fromJson(json['FOLAC']) : null;
-    vITB12 =
-        json['VITB12'] != null ? ENERCKCAL.fromJson(json['VITB12']) : null;
+    vITB6A = json['VITB6A'] != null ? ENERCKCAL.fromJson(json['VITB6A']) : null;
+    fOLDFE = json['FOLDFE'] != null ? ENERCKCAL.fromJson(json['FOLDFE']) : null;
+    fOLFD = json['FOLFD'] != null ? ENERCKCAL.fromJson(json['FOLFD']) : null;
+    fOLAC = json['FOLAC'] != null ? SUGARAdded.fromJson(json['FOLAC']) : null;
+    vITB12 = json['VITB12'] != null ? ENERCKCAL.fromJson(json['VITB12']) : null;
     vITD = json['VITD'] != null ? ENERCKCAL.fromJson(json['VITD']) : null;
-    tOCPHA =
-        json['TOCPHA'] != null ? ENERCKCAL.fromJson(json['TOCPHA']) : null;
-    vITK1 =
-        json['VITK1'] != null ? ENERCKCAL.fromJson(json['VITK1']) : null;
+    tOCPHA = json['TOCPHA'] != null ? ENERCKCAL.fromJson(json['TOCPHA']) : null;
+    vITK1 = json['VITK1'] != null ? ENERCKCAL.fromJson(json['VITK1']) : null;
     sugarAlcohol = json['Sugar.alcohol'] != null
         ? SUGARAdded.fromJson(json['Sugar.alcohol'])
         : null;
-    wATER =
-        json['WATER'] != null ? ENERCKCAL.fromJson(json['WATER']) : null;
+    wATER = json['WATER'] != null ? ENERCKCAL.fromJson(json['WATER']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -478,9 +538,13 @@ class TotalNutrients {
   }
 }
 
-class ENERCKCAL {
+@HiveType(typeId: 6)
+class ENERCKCAL extends HiveObject {
+  @HiveField(0)
   String? label;
+  @HiveField(1)
   double? quantity;
+  @HiveField(2)
   String? unit;
 
   ENERCKCAL({this.label, this.quantity, this.unit});
@@ -500,9 +564,13 @@ class ENERCKCAL {
   }
 }
 
-class SUGARAdded {
+@HiveType(typeId: 7)
+class SUGARAdded extends HiveObject {
+  @HiveField(0)
   String? label;
+  @HiveField(1)
   double? quantity;
+  @HiveField(2)
   String? unit;
 
   SUGARAdded({this.label, this.quantity, this.unit});
@@ -522,31 +590,57 @@ class SUGARAdded {
   }
 }
 
-class TotalDaily {
+@HiveType(typeId: 8)
+class TotalDaily extends HiveObject {
+  @HiveField(0)
   ENERCKCAL? eNERCKCAL;
+  @HiveField(1)
   ENERCKCAL? fAT;
+  @HiveField(2)
   ENERCKCAL? fASAT;
+  @HiveField(3)
   ENERCKCAL? cHOCDF;
+  @HiveField(4)
   ENERCKCAL? fIBTG;
+  @HiveField(5)
   ENERCKCAL? pROCNT;
+  @HiveField(6)
   ENERCKCAL? cHOLE;
+  @HiveField(7)
   ENERCKCAL? nA;
+  @HiveField(8)
   ENERCKCAL? cA;
+  @HiveField(9)
   ENERCKCAL? mG;
+  @HiveField(10)
   ENERCKCAL? k;
+  @HiveField(11)
   ENERCKCAL? fE;
+  @HiveField(12)
   ENERCKCAL? zN;
+  @HiveField(13)
   ENERCKCAL? p;
+  @HiveField(14)
   ENERCKCAL? vITARAE;
+  @HiveField(15)
   ENERCKCAL? vITC;
+  @HiveField(16)
   ENERCKCAL? tHIA;
+  @HiveField(17)
   ENERCKCAL? rIBF;
+  @HiveField(18)
   ENERCKCAL? nIA;
+  @HiveField(19)
   ENERCKCAL? vITB6A;
+  @HiveField(20)
   ENERCKCAL? fOLDFE;
+  @HiveField(21)
   ENERCKCAL? vITB12;
+  @HiveField(22)
   ENERCKCAL? vITD;
+  @HiveField(23)
   ENERCKCAL? tOCPHA;
+  @HiveField(24)
   ENERCKCAL? vITK1;
 
   TotalDaily(
@@ -581,16 +675,11 @@ class TotalDaily {
         ? ENERCKCAL.fromJson(json['ENERC_KCAL'])
         : null;
     fAT = json['FAT'] != null ? ENERCKCAL.fromJson(json['FAT']) : null;
-    fASAT =
-        json['FASAT'] != null ? ENERCKCAL.fromJson(json['FASAT']) : null;
-    cHOCDF =
-        json['CHOCDF'] != null ? ENERCKCAL.fromJson(json['CHOCDF']) : null;
-    fIBTG =
-        json['FIBTG'] != null ? ENERCKCAL.fromJson(json['FIBTG']) : null;
-    pROCNT =
-        json['PROCNT'] != null ? ENERCKCAL.fromJson(json['PROCNT']) : null;
-    cHOLE =
-        json['CHOLE'] != null ? ENERCKCAL.fromJson(json['CHOLE']) : null;
+    fASAT = json['FASAT'] != null ? ENERCKCAL.fromJson(json['FASAT']) : null;
+    cHOCDF = json['CHOCDF'] != null ? ENERCKCAL.fromJson(json['CHOCDF']) : null;
+    fIBTG = json['FIBTG'] != null ? ENERCKCAL.fromJson(json['FIBTG']) : null;
+    pROCNT = json['PROCNT'] != null ? ENERCKCAL.fromJson(json['PROCNT']) : null;
+    cHOLE = json['CHOLE'] != null ? ENERCKCAL.fromJson(json['CHOLE']) : null;
     nA = json['NA'] != null ? ENERCKCAL.fromJson(json['NA']) : null;
     cA = json['CA'] != null ? ENERCKCAL.fromJson(json['CA']) : null;
     mG = json['MG'] != null ? ENERCKCAL.fromJson(json['MG']) : null;
@@ -598,24 +687,18 @@ class TotalDaily {
     fE = json['FE'] != null ? ENERCKCAL.fromJson(json['FE']) : null;
     zN = json['ZN'] != null ? ENERCKCAL.fromJson(json['ZN']) : null;
     p = json['P'] != null ? ENERCKCAL.fromJson(json['P']) : null;
-    vITARAE = json['VITA_RAE'] != null
-        ? ENERCKCAL.fromJson(json['VITA_RAE'])
-        : null;
+    vITARAE =
+        json['VITA_RAE'] != null ? ENERCKCAL.fromJson(json['VITA_RAE']) : null;
     vITC = json['VITC'] != null ? ENERCKCAL.fromJson(json['VITC']) : null;
     tHIA = json['THIA'] != null ? ENERCKCAL.fromJson(json['THIA']) : null;
     rIBF = json['RIBF'] != null ? ENERCKCAL.fromJson(json['RIBF']) : null;
     nIA = json['NIA'] != null ? ENERCKCAL.fromJson(json['NIA']) : null;
-    vITB6A =
-        json['VITB6A'] != null ? ENERCKCAL.fromJson(json['VITB6A']) : null;
-    fOLDFE =
-        json['FOLDFE'] != null ? ENERCKCAL.fromJson(json['FOLDFE']) : null;
-    vITB12 =
-        json['VITB12'] != null ? ENERCKCAL.fromJson(json['VITB12']) : null;
+    vITB6A = json['VITB6A'] != null ? ENERCKCAL.fromJson(json['VITB6A']) : null;
+    fOLDFE = json['FOLDFE'] != null ? ENERCKCAL.fromJson(json['FOLDFE']) : null;
+    vITB12 = json['VITB12'] != null ? ENERCKCAL.fromJson(json['VITB12']) : null;
     vITD = json['VITD'] != null ? ENERCKCAL.fromJson(json['VITD']) : null;
-    tOCPHA =
-        json['TOCPHA'] != null ? ENERCKCAL.fromJson(json['TOCPHA']) : null;
-    vITK1 =
-        json['VITK1'] != null ? ENERCKCAL.fromJson(json['VITK1']) : null;
+    tOCPHA = json['TOCPHA'] != null ? ENERCKCAL.fromJson(json['TOCPHA']) : null;
+    vITK1 = json['VITK1'] != null ? ENERCKCAL.fromJson(json['VITK1']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -699,14 +782,23 @@ class TotalDaily {
   }
 }
 
-class Digest {
+@HiveType(typeId: 9)
+class Digest extends HiveObject {
+  @HiveField(0)
   String? label;
+  @HiveField(1)
   String? tag;
+  @HiveField(2)
   String? schemaOrgTag;
+  @HiveField(3)
   double? total;
+  @HiveField(4)
   bool? hasRDI;
+  @HiveField(5)
   double? daily;
+  @HiveField(6)
   String? unit;
+  @HiveField(7)
   List<Sub>? sub;
 
   Digest(
@@ -751,13 +843,21 @@ class Digest {
   }
 }
 
-class Sub {
+@HiveType(typeId: 10)
+class Sub extends HiveObject {
+  @HiveField(0)
   String? label;
+  @HiveField(1)
   String? tag;
+  @HiveField(2)
   String? schemaOrgTag;
+  @HiveField(3)
   double? total;
+  @HiveField(4)
   bool? hasRDI;
+  @HiveField(5)
   double? daily;
+  @HiveField(6)
   String? unit;
 
   Sub(

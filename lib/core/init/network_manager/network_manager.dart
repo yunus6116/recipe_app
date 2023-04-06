@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../global_constants/global_constants.dart';
+import '../../../env.dart';
 
 class NetworkManager {
   final Ref ref;
@@ -11,7 +11,7 @@ class NetworkManager {
     ref.read;
     _dio = Dio(
       BaseOptions(
-        baseUrl: baseUrl,
+        baseUrl: Environment.baseUrl,
         followRedirects: false,
       ),
     );
