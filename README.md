@@ -1,16 +1,30 @@
-# recipe_app
+# Recipe-App
 
-A new Flutter project.
+### Mobile app that allows users to search for and save their favorite recipes. Users can search for recipes based on an ingredient or recipe name, view recipe details, and save recipes to their favorites list. The app can also allow users to remove recipes from their favorites list.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+[Youtube video of Recipe App review](https://www.youtube.com/watch?v=hpHhqHUfJQk&ab_channel=YunusKara)
 
-A few resources to get you started if this is your first Flutter project:
+[Recipe-API Link](https://developer.edamam.com/edamam-docs-recipe-api)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Project Features
+ - Flutter
+ - MVVM
+ - Dio
+ - Auto Route
+ - Hive for caching
+ - Riverpod for state managment
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screens
+
+| Splash |
+| ------ |
+|<img src="https://user-images.githubusercontent.com/61890331/230286313-09c2edcd-9532-4b39-a554-a5b635a2024f.png" width="250" height="500"/>|
+
+</br>
+
+| Home | Favourites | Recipe Detail |
+| ----- | ------------ | ------------ |
+|<img src="https://user-images.githubusercontent.com/61890331/230287058-59994527-396b-4e4a-9aca-da2abcbd1bf2.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/61890331/230287535-737e7b7e-de0e-4c52-8f2f-f15bfcda4acf.png" width="250" height="500"/>|<img src="https://user-images.githubusercontent.com/61890331/230287674-abcfaf49-7d5a-40b5-a5aa-31ff3e654f34.png" width="250" height="500"/>|
+
+</br>
