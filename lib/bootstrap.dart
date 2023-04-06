@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:recipe_app/core/global_models/recipe_model.dart';
 
+import 'core/global_models/recipe_model.dart';
 import 'core/init/cache/cache_manager.dart';
 import 'core/routing/router.gr.dart';
 import 'core/routing/router_provider.dart';

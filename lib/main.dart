@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:recipe_app/bootstrap.dart';
-import 'package:recipe_app/env.dart';
-import 'package:recipe_app/view/shared/widgets/focus_escape.dart';
+import 'bootstrap.dart';
+import 'env.dart';
+import 'view/shared/widgets/focus_escape.dart';
 import 'core/global_constants/global_constants.dart';
 import 'core/routing/router_provider.dart';
 

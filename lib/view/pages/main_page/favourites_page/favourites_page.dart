@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:recipe_app/core/routing/router.gr.dart';
-import 'package:recipe_app/view/pages/main_page/favourites_page/viewmodel/favourites_page_viewmodel.dart';
-import 'package:recipe_app/view/pages/main_page/favourites_page/widgets/favourite_recipe_widget.dart';
+import '../../../../core/routing/router.gr.dart';
+import 'viewmodel/favourites_page_viewmodel.dart';
+import 'widgets/favourite_recipe_widget.dart';
 
 import '../../../shared/styles/colors.dart';
 import '../../../shared/styles/text_styles.dart';

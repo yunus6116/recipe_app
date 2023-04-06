@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:recipe_app/core/routing/router.gr.dart';
+import '../../../core/routing/router.gr.dart';
 
 import '../../../core/global_models/recipe_model.dart';
 import '../../pages/main_page/home_page/viewmodel/home_page_viewmodel.dart';

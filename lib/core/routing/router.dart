@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/empty_router_widgets.dart';
-import 'package:recipe_app/view/pages/recipe_detail_page/recipe_detail_page.dart';
+import '../../view/pages/recipe_detail_page/recipe_detail_page.dart';
 
 import '../../view/pages/main_page/home_page/home_page.dart';
 import '../../view/pages/main_page/main_page.dart';

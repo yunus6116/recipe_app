@@ -1,7 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:recipe_app/core/global_models/recipe_model.dart';
-import 'package:recipe_app/core/init/network_manager/network_manager.dart';
-import 'package:recipe_app/env.dart';
+import '../global_models/recipe_model.dart';
+import '../init/network_manager/network_manager.dart';
+import '../../env.dart';
 
 abstract class IRecipeServices {
   Future<List<RecipeModel>> getHomePageRecipes({String? searchKey});

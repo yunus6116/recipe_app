@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:recipe_app/view/pages/splash_page/viewmodel/splash_viewmodel.dart';
+import 'viewmodel/splash_viewmodel.dart';
 
 class SplashPage extends StatefulHookConsumerWidget {
   const SplashPage({super.key});

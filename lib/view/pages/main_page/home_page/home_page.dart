@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:recipe_app/core/global_models/recipe_model.dart';
-import 'package:recipe_app/view/shared/styles/text_styles.dart';
-import 'package:recipe_app/view/shared/widgets/controlled_text_field.dart';
+import '../../../../core/global_models/recipe_model.dart';
+import '../../../shared/styles/text_styles.dart';
+import '../../../shared/widgets/controlled_text_field.dart';
 
 import '../../../shared/shimmer/shimmer_effect.dart';
 import '../../../shared/styles/colors.dart';

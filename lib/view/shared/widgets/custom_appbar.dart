@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/view/shared/styles/text_styles.dart';
+import '../styles/text_styles.dart';
 
 import '../../../core/extensions/context_extensions.dart';
 
