@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import '../constants/favourite_constants.dart';
 
 import '../../../../../core/global_models/recipe_model.dart';
 import '../../../../../core/routing/router.gr.dart';
@@ -10,8 +11,8 @@ import '../../../../shared/styles/colors.dart';
 import '../../../../shared/styles/text_styles.dart';
 import '../../home_page/viewmodel/home_page_viewmodel.dart';
 
-class FavouriteRecipeWidget extends HookConsumerWidget {
-  const FavouriteRecipeWidget({
+class FavouritesPageRecipeWidget extends HookConsumerWidget {
+  const FavouritesPageRecipeWidget({
     super.key,
     required this.recipeModel,
   });
@@ -60,18 +61,18 @@ class FavouriteRecipeWidget extends HookConsumerWidget {
                 return SizedBox(
                   height: 60,
                   width: 100,
-                  child: Image.asset('assets/png/food.png'),
+                  child: Image.asset(FavouriteConstants.errorImagePath),
                 );
               },
               fit: BoxFit.fill,
             ),
           ),
           title: Text(
-            recipeModel.label ?? 'Food',
+            recipeModel.label ?? FavouriteConstants.foodText,
             style: AppTextStyles.body2,
           ),
           subtitle: Text(
-            'Meal Type: ${recipeModel.mealType?[0] ?? '-'}',
+            FavouriteConstants.mealTypeText + (recipeModel.mealType?[0] ?? '-'),
             style: AppTextStyles.body4.copyWith(color: AppColors.primary),
           ),
         ),

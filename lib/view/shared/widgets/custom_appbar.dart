@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../styles/text_styles.dart';
 
 import '../../../core/extensions/context_extensions.dart';
+import '../styles/text_styles.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   final bool? hasTitle, showBackButton;

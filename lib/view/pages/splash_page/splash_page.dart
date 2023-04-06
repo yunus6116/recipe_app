@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'constants/splash_constants.dart';
 import 'viewmodel/splash_viewmodel.dart';
 
 class SplashPage extends StatefulHookConsumerWidget {
@@ -29,7 +30,8 @@ class _SplashPageState extends ConsumerState<SplashPage> {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/png/splash.png'), fit: BoxFit.cover),
+              image: AssetImage(SplashConstants.splashImagePath),
+              fit: BoxFit.cover),
         ),
       ),
     );
